@@ -8,10 +8,10 @@
     border-radius: 4px;
 }
 
-.button-danger{
+.buttonDanger{
     background-color: red;
 }
 
-.button-primary{
+.buttonPrimary{
     background-color: dodgerblue;
 }

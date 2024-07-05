@@ -1,11 +1,6 @@
 import ReactDOM from 'react-dom/client';
 import './index.css';
-// import Lesson08 from './lessons/lesson_08/Lesson08';
-import Homework08 from './homeworks/homework_08/Homework08';
-
-//import Lesson07 from './lessons/lesson_07/Lesson07';
-
-
+import Homework09 from './homeworks/homework_09/homework09';
 
 
 
@@ -14,9 +9,8 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <> 
-   <Homework08/>
+<Homework09 />
   </>
-
 );
 
 

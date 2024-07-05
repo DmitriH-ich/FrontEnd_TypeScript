@@ -1,21 +1,25 @@
-import './button.css';
+import { FormEvent } from 'react';
+import styles from './button.module.css'
 
 //добавили interface props
 // которые просил добавить ts для безопасности
 
 interface IButtonProps {
-  isGetButton: boolean;
-  // buttonText необязательный пропс, указан через оператор '?'
+  isGetButton?: boolean;
   buttonText?: string;
   // типизируем props с функцией без return
   onButtonClick?: () => void;
+  buttonType?: 'button' | 'submit' | 'reset';
+  onSubmit?: (e: any) => void;
 }
 
-function Button({ buttonText = 'push', isGetButton, onButtonClick }: IButtonProps) {
-  return (
+function Button({ buttonText = 'push', isGetButton = true, onButtonClick, onSubmit, buttonType = 'button' }: IButtonProps) {
+  return ( 
     <button
+    type = {buttonType}
+    onSubmit={onSubmit}
     onClick={onButtonClick}
-      className={`button ${isGetButton ? 'button-danger' : 'button-primary'}`}
+    className={`${styles.button} ${isGetButton ? styles.buttonDanger : styles.buttonPrimary}`}
     >
       {buttonText}
     </button>
@@ -24,4 +28,3 @@ function Button({ buttonText = 'push', isGetButton, onButtonClick }: IButtonProp
 
 export default Button;
 
-// сделайте так, чтобы при значении true isGetButton кнопки были одного цвета, а при значении false другого
