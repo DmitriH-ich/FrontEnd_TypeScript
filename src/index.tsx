@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Lesson10 from './lessons/lesson_10/Lesson10';
+import Homework10 from './homework/Homework10';
 
 
 
@@ -9,7 +9,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <> 
-   <Lesson10/>
+   <Homework10 />
   </>
 
 );

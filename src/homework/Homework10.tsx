@@ -1,8 +1,6 @@
-
-
 import { useEffect, useState } from 'react';
-
-import styles from './lesson10.module.css';
+import styles from './homework10.module.css';
+import Counter from '../components/Counter';
 
 interface IProduct {
   id: number;
@@ -13,7 +11,7 @@ interface IProduct {
   image: string;
 }
 
-const Lesson10 = () => {
+const Homework10 = () => {
   const [toggle, setToggle] = useState<boolean>(false);
   const [products, setProducts] = useState<IProduct[]>([]);
   const [count, setCount] = useState<number>(10);
@@ -29,17 +27,11 @@ const Lesson10 = () => {
     setToggle((prev) => !prev);
   };
 
-  // useEffect - это хук функция из react, позволяющая изолировать код от ненужного повторного перевыполнения при перезагрузке компонента
-
-  // * мы прячем это ререндр
   useEffect(() => {
     getProducts();
   }, []);
-  // *
 
   console.log('rerender!');
-
-  // принимает в себя стрелочную функцию с логикой и массив зависимостей - условие перевыполнения
 
   return (
     <div>
@@ -52,27 +44,21 @@ const Lesson10 = () => {
           <span onClick={changeToggle}>≡</span>
         </div>
       </header>
-
-      {/* если toggle true - мы покажем элемент на странице - если false спрячем */}
-
       {toggle && (
-        <div className={styles.counter}>
-          <p>{count}</p>
-          <div>
-            <button onClick={() => setCount(count - 1)}>minus!</button>
-            <button onClick={() => setCount(count + 1)}>plus!</button>
-          </div>
+        <div className={styles.menu}>
+          <a href="/">Home</a>
+          <a href="/">Info</a>
+          <a href="/">Profile</a>
         </div>
       )}
-
+      {toggle && <Counter count={count} setCount={setCount} />}
       <ul>
         {products.map((el) => (
           <li key={el.id}>{el.title}</li>
         ))}
       </ul>
-
     </div>
   );
 };
 
-export default Lesson10;
+export default Homework10;
